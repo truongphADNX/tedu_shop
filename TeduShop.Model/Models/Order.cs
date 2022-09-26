@@ -1,31 +1,46 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using TeduShop.Model.Abstract;
 
 namespace TeduShop.Model.Models
 {
-    internal class Order : AuditableSmall
+    [Table("Orders")]
+    public class Order : AuditableSmall
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int ID { get; set; }
-        [Required, MaxLength(256)]
-        public string CustomerName { get; set; }
-        [Required, MaxLength(256)]
-        public string CustomerAddress { get; set; }
-        [Required, MaxLength(256)]
-        public string CustomeEmail { get; set; }
-        [Required, MaxLength(50)]
-        public string CustomeMobile { get; set; }
-        [Required, MaxLength(256)]
-        public string CustomerMessage { get; set; }
+        public int ID { set; get; }
+
+        [Required]
         [MaxLength(256)]
-        public string PaymentMethod { get; set; }
+        public string CustomerName { set; get; }
 
-        public string PaymentStatus { get; set; }
+        [Required]
+        [MaxLength(256)]
+        public string CustomerAddress { set; get; }
 
-        public virtual IEnumerable<OrderDetail> OrderDetails { get; set; }
+        [Required]
+        [MaxLength(256)]
+        public string CustomerEmail { set; get; }
 
+        [Required]
+        [MaxLength(50)]
+        public string CustomerMobile { set; get; }
+
+        [Required]
+        [MaxLength(256)]
+        public string CustomerMessage { set; get; }
+
+        [MaxLength(256)]
+        public string PaymentMethod { set; get; }
+
+        public string PaymentStatus { set; get; }
+
+        public virtual IEnumerable<OrderDetail> OrderDetails { set; get; }
     }
 }

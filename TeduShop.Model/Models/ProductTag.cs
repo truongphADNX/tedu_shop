@@ -8,22 +8,21 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Model.Models
 {
-    [Table("OrderDetails")]
-    public class OrderDetail
+    [Table("ProductTags")]
+    public class ProductTag
     {
-        [Key]
-        public int OrderID { set; get; }
-
         [Key]
         public int ProductID { set; get; }
 
-        public int Quantitty { set; get; }
-
-        [ForeignKey("OrderID")]
-        public virtual Order Order { set; get; }
+        [Key]
+        [Column(TypeName = "varchar")]
+        [MaxLength(50)]
+        public string TagID { set; get; }
 
         [ForeignKey("ProductID")]
         public virtual Product Product { set; get; }
+
+        [ForeignKey("TagID")]
+        public virtual Tag Tag { set; get; }
     }
 }
-

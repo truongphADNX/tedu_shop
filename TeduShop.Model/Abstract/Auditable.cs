@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TeduShop.Model.Abstract
 {
-    internal class Auditable : IAuditable
+    public class Auditable : IAuditable
     {
         public DateTime? CreatedDate { get ; set ; }
         [MaxLength(256)]
