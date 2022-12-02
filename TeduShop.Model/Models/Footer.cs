@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TeduShop.Model.Models
 {
-    [Table("Footers")] //Table name
+    [Table("Footers")]
     public class Footer
     {
         [Key]
@@ -12,9 +12,5 @@ namespace TeduShop.Model.Models
 
         [Required]
         public string Content { set; get; }
-
-
-
-
     }
 }
